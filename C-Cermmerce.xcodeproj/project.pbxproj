@@ -16,6 +16,10 @@
 		8EFA88D72B78B740006E003E /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EFA88D62B78B740006E003E /* Splash.storyboard */; };
 		8EFA88D92B78B7AA006E003E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88D82B78B7AA006E003E /* SplashViewController.swift */; };
 		8EFA88DC2B78C113006E003E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8EFA88DB2B78C113006E003E /* Lottie */; };
+		8EFA88DE2B78CC30006E003E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EFA88DD2B78CC30006E003E /* Images.xcassets */; };
+		8EFA88E02B78CCAD006E003E /* CPImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88DF2B78CCAD006E003E /* CPImage.swift */; };
+		8EFA88E22B78CF8A006E003E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EFA88E12B78CF8A006E003E /* Colors.xcassets */; };
+		8EFA88E42B78D154006E003E /* CPColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88E32B78D154006E003E /* CPColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		8EFA88D02B78B4CD006E003E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EFA88D62B78B740006E003E /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		8EFA88D82B78B7AA006E003E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		8EFA88DD2B78CC30006E003E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8EFA88DF2B78CCAD006E003E /* CPImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPImage.swift; sourceTree = "<group>"; };
+		8EFA88E12B78CF8A006E003E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		8EFA88E32B78D154006E003E /* CPColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,8 @@
 		8EFA88C12B78B4CB006E003E /* C-Cermmerce */ = {
 			isa = PBXGroup;
 			children = (
+				8EFA88E32B78D154006E003E /* CPColor.swift */,
+				8EFA88DF2B78CCAD006E003E /* CPImage.swift */,
 				8EFA88C22B78B4CB006E003E /* AppDelegate.swift */,
 				8EFA88C42B78B4CB006E003E /* SceneDelegate.swift */,
 				8EFA88C62B78B4CB006E003E /* ViewController.swift */,
@@ -71,6 +81,8 @@
 				8EFA88D62B78B740006E003E /* Splash.storyboard */,
 				8EFA88D02B78B4CD006E003E /* Info.plist */,
 				8EFA88D82B78B7AA006E003E /* SplashViewController.swift */,
+				8EFA88DD2B78CC30006E003E /* Images.xcassets */,
+				8EFA88E12B78CF8A006E003E /* Colors.xcassets */,
 			);
 			path = "C-Cermmerce";
 			sourceTree = "<group>";
@@ -140,7 +152,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EFA88CF2B78B4CD006E003E /* LaunchScreen.storyboard in Resources */,
+				8EFA88DE2B78CC30006E003E /* Images.xcassets in Resources */,
 				8EFA88CC2B78B4CD006E003E /* Assets.xcassets in Resources */,
+				8EFA88E22B78CF8A006E003E /* Colors.xcassets in Resources */,
 				8EFA88CA2B78B4CB006E003E /* Main.storyboard in Resources */,
 				8EFA88D72B78B740006E003E /* Splash.storyboard in Resources */,
 			);
@@ -153,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EFA88E42B78D154006E003E /* CPColor.swift in Sources */,
 				8EFA88C72B78B4CB006E003E /* ViewController.swift in Sources */,
 				8EFA88C32B78B4CB006E003E /* AppDelegate.swift in Sources */,
+				8EFA88E02B78CCAD006E003E /* CPImage.swift in Sources */,
 				8EFA88C52B78B4CB006E003E /* SceneDelegate.swift in Sources */,
 				8EFA88D92B78B7AA006E003E /* SplashViewController.swift in Sources */,
 			);

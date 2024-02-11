@@ -21,6 +21,7 @@ class SplashViewController: UIViewController {
         super.viewDidAppear(animated)
         
         lottieAnimationView.play()
+        UIImageView().image = CPImage.close
     }
     
 }

@@ -6,13 +6,11 @@
 //
 
 import UIKit
+import Lottie
 
 class SplashViewController: UIViewController {
-    @IBOutlet var appIconCenterYConstraint: NSLayoutConstraint!
-    
-    @IBOutlet var appIconCenterXConstraint: NSLayoutConstraint!
-    
-    @IBOutlet var appIcon: UIImageView!
+   
+    @IBOutlet var lottieAnimationView: LottieAnimationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +20,7 @@ class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        appIconCenterXConstraint.constant = -(view.frame.width / 2) - (appIcon.frame.width / 2)
-        appIconCenterYConstraint.constant = -(view.frame.height / 2) - (appIcon.frame.height / 2)
-        
-        UIView.animate(withDuration: 2) {//후인 클로저 생략한는거 사용ㅎㅎㅎ
-            [weak self] in
-            self?.view.layoutIfNeeded()
-        }
-        
+        lottieAnimationView.play()
     }
     
 }

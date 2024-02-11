@@ -27,6 +27,11 @@
                             <constraint firstItem="pss-bW-pjc" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="oS8-QH-ikN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="appIcon" destination="pss-bW-pjc" id="VfM-4a-EqK"/>
+                        <outlet property="appIconCenterXConstraint" destination="Evg-am-upS" id="cEm-Bf-Ere"/>
+                        <outlet property="appIconCenterYConstraint" destination="oS8-QH-ikN" id="Pce-uS-QwV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

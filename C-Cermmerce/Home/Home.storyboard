@@ -22,19 +22,34 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KG8-60-2E2">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="393" height="189"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Mnc-D5-mWp">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeBannerCollectionViewCell" id="Mnc-D5-mWp" customClass="HomeBannerCollectionViewCell" customModule="C_Cermmerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="189"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q2N-rr-WCU">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="189"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Wf-1B-28U">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="189"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6Wf-1B-28U" firstAttribute="top" secondItem="q2N-rr-WCU" secondAttribute="top" id="5zD-hb-U2c"/>
+                                                <constraint firstItem="6Wf-1B-28U" firstAttribute="leading" secondItem="q2N-rr-WCU" secondAttribute="leading" id="UYv-Tg-0z4"/>
+                                                <constraint firstAttribute="bottom" secondItem="6Wf-1B-28U" secondAttribute="bottom" id="fox-7A-22W"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Wf-1B-28U" secondAttribute="trailing" id="s5b-PL-HAg"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="393" height="189"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="6Wf-1B-28U" id="MWt-Um-Mn4"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -54,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="-2"/>
+            <point key="canvasLocation" x="6.8702290076335872" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

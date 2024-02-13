@@ -22,6 +22,7 @@
 		8EFA88EC2B7A083E006E003E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EFA88EB2B7A083E006E003E /* Home.storyboard */; };
 		8EFA88EE2B7A086F006E003E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88ED2B7A086F006E003E /* HomeViewController.swift */; };
 		8EFA88F52B7A160E006E003E /* HomeBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88F42B7A160E006E003E /* HomeBannerCollectionViewCell.swift */; };
+		8EFA88F92B7B54B9006E003E /* HomeProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88F82B7B54B9006E003E /* HomeProductCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		8EFA88EB2B7A083E006E003E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8EFA88ED2B7A086F006E003E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8EFA88F42B7A160E006E003E /* HomeBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		8EFA88F82B7B54B9006E003E /* HomeProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				8EFA88EB2B7A083E006E003E /* Home.storyboard */,
 				8EFA88ED2B7A086F006E003E /* HomeViewController.swift */,
 				8EFA88F42B7A160E006E003E /* HomeBannerCollectionViewCell.swift */,
+				8EFA88F82B7B54B9006E003E /* HomeProductCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EFA88E42B78D154006E003E /* CPColor.swift in Sources */,
+				8EFA88F92B7B54B9006E003E /* HomeProductCollectionViewCell.swift in Sources */,
 				8EFA88C32B78B4CB006E003E /* AppDelegate.swift in Sources */,
 				8EFA88EE2B7A086F006E003E /* HomeViewController.swift in Sources */,
 				8EFA88E62B78D2E0006E003E /* CPFont.swift in Sources */,

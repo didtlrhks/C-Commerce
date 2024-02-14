@@ -6,18 +6,18 @@
 //
 
 import UIKit
-
+//UIViewController 를 상속받는HomeViewController 클래스 선언
 class HomeViewController:UIViewController {
     
-    enum Section : Int{
+    enum Section : Int{ //섹션의 종류를 정의하는 열거형
         case banner
         case horizontalProductItem
     }
     
     
-    @IBOutlet var collectionView: UICollectionView!
-    private var dataSource : UICollectionViewDiffableDataSource<Section, AnyHashable>?
-    private var compositianlLayout : UICollectionViewCompositionalLayout = {
+    @IBOutlet var collectionView: UICollectionView! // 뷰와의 연결
+    private var dataSource : UICollectionViewDiffableDataSource<Section, AnyHashable>? // 컬렉션 뷰의 데이터 소스를 관리하는 변수임
+    private var compositianlLayout : UICollectionViewCompositionalLayout = {//UICollectionViewCompositionalLayout를 사용하여 각 섹션의 레이아웃을 동적으로 생성
         UICollectionViewCompositionalLayout{section, _ in
             switch Section(rawValue: section) {
             case .banner:

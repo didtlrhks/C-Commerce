@@ -57,23 +57,15 @@ class HomeViewController:UIViewController {
     }
     
     private func setDataSource() {
-        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView,cellProvider: { collectionView, indexPath, viewModel in
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView,cellProvider: { [weak self] collectionView, indexPath, viewModel in
 
             switch Section(rawValue: indexPath.section) {
             case .banner :
-                guard let viewModel = viewModel as? HomeBannerCollectionViewCellViewModel,
-                      let cell : HomeBannerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeBannerCollectionViewCell", for: indexPath) as? HomeBannerCollectionViewCell else {return .init() }
-               
-                cell.setViewModel(viewModel)
-                return cell
+                return self?.bannerCell(collectionView,indexPath,viewModel)
                 
             case .horizontalProductItem, .verticalProductItem:
-               guard let viewModel = viewModel as? HomeProductCollectionViewCellViewModel,
-
-                        let cell : HomeProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeProductCollectionViewCell", for : indexPath) as?
-                        HomeProductCollectionViewCell else {return .init()}
-                cell.setViewModel(viewModel)
-                return cell
+                return self?.ProductItemCell(collectionView,indexPath,viewModel)
+               
             case .none :
                 return .init()
             }
@@ -107,6 +99,22 @@ class HomeViewController:UIViewController {
                               HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation9", reasonDiscountString: "쿠폰 할인", originalPrice: "600000", discountPrice: "480000"),HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation10", reasonDiscountString: "쿠폰 할인", originalPrice: "700000", discountPrice: "580000")], toSection: .verticalProductItem)
         
         dataSource?.apply(snapShot)
+    }
+    
+    private func bannerCell(_ collectionView: UICollectionView,_ indexPath: IndexPath,_ viewModel:AnyHashable) -> UICollectionViewCell{
+        guard let viewModel = viewModel as? HomeBannerCollectionViewCellViewModel,
+              let cell : HomeBannerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeBannerCollectionViewCell", for: indexPath) as? HomeBannerCollectionViewCell else {return .init() }
+       
+        cell.setViewModel(viewModel)
+        return cell
+    }
+    private func ProductItemCell(_ collectionView: UICollectionView,_ indexPath: IndexPath,_ viewModel:AnyHashable) -> UICollectionViewCell{
+        guard let viewModel = viewModel as? HomeProductCollectionViewCellViewModel,
+
+                 let cell : HomeProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeProductCollectionViewCell", for : indexPath) as?
+                 HomeProductCollectionViewCell else {return .init()}
+         cell.setViewModel(viewModel)
+         return cell
     }
 
 

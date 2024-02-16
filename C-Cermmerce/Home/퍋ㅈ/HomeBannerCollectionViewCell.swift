@@ -9,7 +9,7 @@ import UIKit
 
 
 struct HomeBannerCollectionViewCellViewModel : Hashable {
-    let bannerImage : UIImage
+    let bannerImageUrl  : String
 }
 
 class HomeBannerCollectionViewCell: UICollectionViewCell {
@@ -17,7 +17,7 @@ class HomeBannerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     func setViewModel(_ viewModel: HomeBannerCollectionViewCellViewModel){
-        imageView.image = viewModel.bannerImage
+       // imageView.image = viewModel.bannerImage
     }
 }
 

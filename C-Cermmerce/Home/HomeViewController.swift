@@ -29,11 +29,11 @@ class HomeViewController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadData()
        
         setDataSource()
         
-        applySnapShot()
+      
         
         collectionView.collectionViewLayout = compositianlLayout
 
@@ -52,6 +52,33 @@ class HomeViewController:UIViewController {
                 return  HomeProductCollectionViewCell.verticalProductItemLayout()
                 
             case .none: return nil
+            }
+        }
+    }
+    private func loadData() {
+        Task{
+            do {
+              let response = try await NetworkService.shared.getHoemData()
+                let bannerViewModels = response.banners.map{
+                    HomeBannerCollectionViewCellViewModel(bannerImageUrl: $0.imageUrl)
+                }
+                let horizontalProductViewModels = response.horizontalProducts.map{
+                    HomeProductCollectionViewCellViewModel(imageUrlString: $0.imageUrl,
+                                                           title: $0.title,
+                                                           reasonDiscountString: $0.discount,
+                                                           originalPrice: "\($0.originalPrice)",
+                                                           discountPrice: "\($0.discountPrice)")
+                }
+                let verticalProductViewModels = response.verticalProducts.map{
+                    HomeProductCollectionViewCellViewModel(imageUrlString: $0.imageUrl,
+                                                           title: $0.title,
+                                                           reasonDiscountString: $0.discount,
+                                                           originalPrice: "\($0.originalPrice)",
+                                                           discountPrice: "\($0.discountPrice)")
+                }
+                applySnapShot(bannerViewModels: bannerViewModels, horizontalProductViewModels: horizontalProductViewModels, verticalProductViewModels: verticalProductViewModels)
+            } catch {
+                print("nework error : \(error)")
             }
         }
     }
@@ -74,29 +101,17 @@ class HomeViewController:UIViewController {
         })
     }
     
-    private func applySnapShot() {
+    private func applySnapShot(bannerViewModels : [HomeBannerCollectionViewCellViewModel], horizontalProductViewModels: [HomeProductCollectionViewCellViewModel],verticalProductViewModels : [HomeProductCollectionViewCellViewModel]) {
         var snapShot : NSDiffableDataSourceSnapshot<Section,AnyHashable> = NSDiffableDataSourceSnapshot<Section,AnyHashable>()
         snapShot.appendSections([.banner])
-        snapShot.appendItems([
-            HomeBannerCollectionViewCellViewModel(bannerImage: UIImage(resource: .slide1)),
-            HomeBannerCollectionViewCellViewModel(bannerImage: UIImage(resource: .slide2)),
-            HomeBannerCollectionViewCellViewModel(bannerImage: UIImage(resource: .slide3))]
-                             ,toSection: .banner)
+        snapShot.appendItems(bannerViewModels ,toSection: .banner)
         
         snapShot.appendSections([.horizontalProductItem])
-        snapShot.appendItems(
-            [HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation1", reasonDiscountString: "쿠폰 할인", originalPrice: "200000", discountPrice: "80000"),
-                              HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation2", reasonDiscountString: "쿠폰 할인", originalPrice: "300000", discountPrice: "180000"),HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation3", reasonDiscountString: "쿠폰 할인", originalPrice: "400000", discountPrice: "280000"),
-                              HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation3", reasonDiscountString: "쿠폰 할인", originalPrice: "500000", discountPrice: "380000"),
-                              HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation4", reasonDiscountString: "쿠폰 할인", originalPrice: "600000", discountPrice: "480000"),HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation6", reasonDiscountString: "쿠폰 할인", originalPrice: "700000", discountPrice: "580000")], toSection: .horizontalProductItem)
+        snapShot.appendItems(horizontalProductViewModels, toSection: .horizontalProductItem)
         
         
         snapShot.appendSections([.verticalProductItem])
-        snapShot.appendItems(
-            [HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation5", reasonDiscountString: "쿠폰 할인", originalPrice: "200000", discountPrice: "80000"),
-                              HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation6", reasonDiscountString: "쿠폰 할인", originalPrice: "300000", discountPrice: "180000"),HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation7", reasonDiscountString: "쿠폰 할인", originalPrice: "400000", discountPrice: "280000"),
-                              HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation8", reasonDiscountString: "쿠폰 할인", originalPrice: "500000", discountPrice: "380000"),
-                              HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation9", reasonDiscountString: "쿠폰 할인", originalPrice: "600000", discountPrice: "480000"),HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation10", reasonDiscountString: "쿠폰 할인", originalPrice: "700000", discountPrice: "580000")], toSection: .verticalProductItem)
+        snapShot.appendItems(verticalProductViewModels, toSection: .verticalProductItem)
         
         dataSource?.apply(snapShot)
     }

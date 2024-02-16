@@ -57,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E747AAE2B7F41BA00D9302D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8EFA88F42B7A160E006E003E /* HomeBannerCollectionViewCell.swift */,
+				8EFA88F82B7B54B9006E003E /* HomeProductCollectionViewCell.swift */,
+			);
+			name = View;
+			path = "퍋ㅈ";
+			sourceTree = "<group>";
+		};
 		8EFA88B62B78B4CB006E003E = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +109,9 @@
 		8EFA88F02B7A0D0D006E003E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8E747AAE2B7F41BA00D9302D /* View */,
 				8EFA88EB2B7A083E006E003E /* Home.storyboard */,
 				8EFA88ED2B7A086F006E003E /* HomeViewController.swift */,
-				8EFA88F42B7A160E006E003E /* HomeBannerCollectionViewCell.swift */,
-				8EFA88F82B7B54B9006E003E /* HomeProductCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

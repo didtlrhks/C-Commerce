@@ -12,6 +12,8 @@ class HomeViewController:UIViewController {
     enum Section : Int{ //섹션의 종류를 정의하는 열거형
         case banner
         case horizontalProductItem
+        case verticalProductItem
+        
     }
     
     
@@ -45,6 +47,22 @@ class HomeViewController:UIViewController {
                 section.contentInsets = .init(top:20,leading: 33,bottom: 0,trailing: 33)
                 
                 return section
+                
+            case .verticalProductItem:
+                let itemSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2), heightDimension: .estimated(277))
+                let item : NSCollectionLayoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize : NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(277))
+                
+                let group : NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                let section : NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .none
+                
+                section.contentInsets = .init(top:20,leading: 19   ,bottom: 0,trailing: 19)
+                
+                return section
+                
             case .none: return nil
             }}
        
@@ -64,7 +82,7 @@ class HomeViewController:UIViewController {
                 cell.setViewModel(viewModel)
                 return cell
                 
-            case .horizontalProductItem:
+            case .horizontalProductItem, .verticalProductItem:
                guard let viewModel = viewModel as? HomeProductCollectionViewCellViewModel,
 
                         let cell : HomeProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeProductCollectionViewCell", for : indexPath) as?
@@ -92,6 +110,14 @@ class HomeViewController:UIViewController {
                               HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation2", reasonDiscountString: "쿠폰 할인", originalPrice: "300000", discountPrice: "180000"),HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation3", reasonDiscountString: "쿠폰 할인", originalPrice: "400000", discountPrice: "280000"),
                               HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation4", reasonDiscountString: "쿠폰 할인", originalPrice: "500000", discountPrice: "380000"),
                               HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation5", reasonDiscountString: "쿠폰 할인", originalPrice: "600000", discountPrice: "480000"),HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation6", reasonDiscountString: "쿠폰 할인", originalPrice: "700000", discountPrice: "580000")], toSection: .horizontalProductItem)
+        
+        
+        snapShot.appendSections([.verticalProductItem])
+        snapShot.appendItems(
+            [HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation6", reasonDiscountString: "쿠폰 할인", originalPrice: "200000", discountPrice: "80000"),
+                              HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation7", reasonDiscountString: "쿠폰 할인", originalPrice: "300000", discountPrice: "180000"),HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation8", reasonDiscountString: "쿠폰 할인", originalPrice: "400000", discountPrice: "280000"),
+                              HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation9", reasonDiscountString: "쿠폰 할인", originalPrice: "500000", discountPrice: "380000"),
+                              HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation10", reasonDiscountString: "쿠폰 할인", originalPrice: "600000", discountPrice: "480000"),HomeProductCollectionViewCellViewModel(imageUrlString: "", title: "playstation6", reasonDiscountString: "쿠폰 할인", originalPrice: "700000", discountPrice: "580000")], toSection: .verticalProductItem)
         
         dataSource?.apply(snapShot)
         

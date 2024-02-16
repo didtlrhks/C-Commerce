@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E747AB12B7F7A2800D9302D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E747AB02B7F7A2800D9302D /* NetworkService.swift */; };
+		8E747AB42B7F7BEA00D9302D /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E747AB32B7F7BEA00D9302D /* HomeResponse.swift */; };
 		8EFA88C32B78B4CB006E003E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88C22B78B4CB006E003E /* AppDelegate.swift */; };
 		8EFA88C52B78B4CB006E003E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88C42B78B4CB006E003E /* SceneDelegate.swift */; };
 		8EFA88CC2B78B4CD006E003E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EFA88CB2B78B4CD006E003E /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E747AB02B7F7A2800D9302D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8E747AB32B7F7BEA00D9302D /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		8EFA88BF2B78B4CB006E003E /* C-Cermmerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C-Cermmerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EFA88C22B78B4CB006E003E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EFA88C42B78B4CB006E003E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,22 @@
 			path = "퍋ㅈ";
 			sourceTree = "<group>";
 		};
+		8E747AAF2B7F7A1900D9302D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8E747AB02B7F7A2800D9302D /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8E747AB22B7F7BE100D9302D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E747AB32B7F7BEA00D9302D /* HomeResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8EFA88B62B78B4CB006E003E = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +106,8 @@
 		8EFA88C12B78B4CB006E003E /* C-Cermmerce */ = {
 			isa = PBXGroup;
 			children = (
+				8E747AB22B7F7BE100D9302D /* Model */,
+				8E747AAF2B7F7A1900D9302D /* Network */,
 				8EFA88F32B7A0D5C006E003E /* Delegates */,
 				8EFA88F22B7A0D4E006E003E /* DesignSource */,
 				8EFA88F12B7A0D15006E003E /* Splash */,
@@ -225,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E747AB12B7F7A2800D9302D /* NetworkService.swift in Sources */,
 				8EFA88E42B78D154006E003E /* CPColor.swift in Sources */,
 				8EFA88F92B7B54B9006E003E /* HomeProductCollectionViewCell.swift in Sources */,
 				8EFA88C32B78B4CB006E003E /* AppDelegate.swift in Sources */,
@@ -234,6 +257,7 @@
 				8EFA88C52B78B4CB006E003E /* SceneDelegate.swift in Sources */,
 				8EFA88D92B78B7AA006E003E /* SplashViewController.swift in Sources */,
 				8EFA88F52B7A160E006E003E /* HomeBannerCollectionViewCell.swift in Sources */,
+				8E747AB42B7F7BEA00D9302D /* HomeResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

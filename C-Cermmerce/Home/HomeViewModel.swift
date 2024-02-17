@@ -91,8 +91,8 @@ class HomeViewModel {
                 HomeProductCollectionViewCellViewModel(imageUrlString: $0.imageUrl,
                                                                       title: $0.title,
                                                                       reasonDiscountString: $0.discount,
-                                                                      originalPrice: "\($0.originalPrice)원",
-                                                                      discountPrice: "\($0.discountPrice)원")
+                                                       originalPrice: $0.originalPrice.moneyString,
+                                                       discountPrice: $0.discountPrice.moneyString)
             }
         }
     }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E747AB12B7F7A2800D9302D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E747AB02B7F7A2800D9302D /* NetworkService.swift */; };
 		8E747AB42B7F7BEA00D9302D /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E747AB32B7F7BEA00D9302D /* HomeResponse.swift */; };
+		8E747AB92B80989100D9302D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8E747AB82B80989100D9302D /* Kingfisher */; };
 		8EFA88C32B78B4CB006E003E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88C22B78B4CB006E003E /* AppDelegate.swift */; };
 		8EFA88C52B78B4CB006E003E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88C42B78B4CB006E003E /* SceneDelegate.swift */; };
 		8EFA88CC2B78B4CD006E003E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EFA88CB2B78B4CD006E003E /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E747AB92B80989100D9302D /* Kingfisher in Frameworks */,
 				8EFA88DC2B78C113006E003E /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +187,7 @@
 			name = "C-Cermmerce";
 			packageProductDependencies = (
 				8EFA88DB2B78C113006E003E /* Lottie */,
+				8E747AB82B80989100D9302D /* Kingfisher */,
 			);
 			productName = "C-Cermmerce";
 			productReference = 8EFA88BF2B78B4CB006E003E /* C-Cermmerce.app */;
@@ -216,6 +219,7 @@
 			mainGroup = 8EFA88B62B78B4CB006E003E;
 			packageReferences = (
 				8EFA88DA2B78C113006E003E /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				8E747AB72B80989100D9302D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 8EFA88C02B78B4CB006E003E /* Products */;
 			projectDirPath = "";
@@ -474,6 +478,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8E747AB72B80989100D9302D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 		8EFA88DA2B78C113006E003E /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -485,6 +497,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8E747AB82B80989100D9302D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8E747AB72B80989100D9302D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		8EFA88DB2B78C113006E003E /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8EFA88DA2B78C113006E003E /* XCRemoteSwiftPackageReference "lottie-ios" */;

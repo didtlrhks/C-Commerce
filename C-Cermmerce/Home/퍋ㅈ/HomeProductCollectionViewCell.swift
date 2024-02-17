@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 
 struct HomeProductCollectionViewCellViewModel : Hashable{
@@ -34,6 +35,7 @@ class HomeProductCollectionViewCell: UICollectionViewCell {
     
     
     func setViewModel(_ viewModel: HomeProductCollectionViewCellViewModel) {
+        productItemImageView.kf.setImage(with: URL(string: viewModel.imageUrlString))
         productTitleLabel.text = viewModel.title
         productReasonDiscountLabel.text = viewModel.reasonDiscountString
         originalPriceLabel.attributedText = NSAttributedString(string: viewModel.originalPrice, attributes: [NSAttributedString.Key.strikethroughStyle:NSUnderlineStyle.single.rawValue]) 

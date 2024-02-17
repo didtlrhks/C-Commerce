@@ -9,11 +9,26 @@ import Foundation
 import Combine
 
 class HomeViewModel {
-    @Published var bannerViewModels : [HomeBannerCollectionViewCellViewModel]?
-    @Published var horizontalProductViewModels: [HomeProductCollectionViewCellViewModel]?
-    @Published var verticalProductViewModels: [HomeProductCollectionViewCellViewModel]?
-    
+    enum Action {
+        case loadData
+    }
+    final class State{
+        struct CollectionViewModels{
+             var bannerViewModels : [HomeBannerCollectionViewCellViewModel]?
+             var horizontalProductViewModels: [HomeProductCollectionViewCellViewModel]?
+             var verticalProductViewModels: [HomeProductCollectionViewCellViewModel]?
+        }
+        @Published var collectionViewModels : CollectionViewModels = CollectionViewModels()
+        }
+    private(set) var state : State = State()
     private var loadDataTask : Task<Void,Never>?
+    
+    func process(action: Action) {
+        switch action {
+        case .loadData:
+            loadData()
+        }
+    }
     func loadData() {
         loadDataTask = Task{
             do {
@@ -40,7 +55,7 @@ class HomeViewModel {
     @MainActor
     private func transformBanner(_ response: HomeResponse) async
     {
-        bannerViewModels = response.banners.map {
+        state.collectionViewModels.bannerViewModels = response.banners.map {
                 HomeBannerCollectionViewCellViewModel(bannerImageUrl: $0.imageUrl)
         
         }
@@ -49,7 +64,7 @@ class HomeViewModel {
     
     @MainActor
     private func transformHorizontalProduct(_ response: HomeResponse) async {
-         horizontalProductViewModels = response.horizontalProducts.map{
+        state.collectionViewModels.horizontalProductViewModels = response.horizontalProducts.map{
             HomeProductCollectionViewCellViewModel(imageUrlString: $0.imageUrl,
                                                    title: $0.title,
                                                    reasonDiscountString: $0.discount,
@@ -60,7 +75,7 @@ class HomeViewModel {
     
     @MainActor
     private func transformVerticalProduct(_ response:HomeResponse) async {
-         verticalProductViewModels = response.verticalProducts.map{
+        state.collectionViewModels.verticalProductViewModels = response.verticalProducts.map{
             HomeProductCollectionViewCellViewModel(imageUrlString: $0.imageUrl,
                                                    title: $0.title,
                                                    reasonDiscountString: $0.discount,

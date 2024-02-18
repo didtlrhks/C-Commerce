@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class HomeViewModel {
+final class HomeViewModel {
     enum Action {
         case loadData
         case getDataSuccess(HomeResponse)
@@ -35,6 +35,15 @@ class HomeViewModel {
             print("nework error : \(error)")
         }
     }
+   
+    deinit{
+        loadDataTask?.cancel()
+    }
+    
+    }
+
+extension HomeViewModel {
+    
     func loadData() {
         loadDataTask = Task{
             do {
@@ -48,9 +57,6 @@ class HomeViewModel {
                
             }
         }
-    }
-    deinit{
-        loadDataTask?.cancel()
     }
     
     private func transformResponses(_ response: HomeResponse){
@@ -95,5 +101,4 @@ class HomeViewModel {
                                                        discountPrice: $0.discountPrice.moneyString)
             }
         }
-    }
-
+}

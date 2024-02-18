@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 //UIViewController 를 상속받는HomeViewController 클래스 선언
-class HomeViewController:UIViewController {
+final class HomeViewController:UIViewController {
     
     enum Section : Int{ //섹션의 종류를 정의하는 열거형
         case banner
@@ -18,7 +18,7 @@ class HomeViewController:UIViewController {
     }
     
     
-    @IBOutlet var collectionView: UICollectionView! // 뷰와의 연결
+    @IBOutlet private weak var collectionView: UICollectionView! // 뷰와의 연결
     private var dataSource : UICollectionViewDiffableDataSource<Section, AnyHashable>? // 컬렉션 뷰의 데이터 소스를 관리하는 변수임
     private var compositianlLayout : UICollectionViewCompositionalLayout = setCompositinalLayout()
         

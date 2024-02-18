@@ -18,19 +18,19 @@ struct HomeProductCollectionViewCellViewModel : Hashable{
 }
 
 
-class HomeProductCollectionViewCell: UICollectionViewCell {
+final class HomeProductCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var productItemImageView: UIImageView!{
+    @IBOutlet private weak var productItemImageView: UIImageView!{
         didSet {
             productItemImageView.layer.cornerRadius = 5
         }
     }
     
-    @IBOutlet var productTitleLabel: UILabel!
-    @IBOutlet var productReasonDiscountLabel: UILabel!
-    @IBOutlet var originalPriceLabel: UILabel!
+    @IBOutlet private weak var productTitleLabel: UILabel!
+    @IBOutlet private weak  var productReasonDiscountLabel: UILabel!
+    @IBOutlet private weak  var originalPriceLabel: UILabel!
     
-    @IBOutlet var discountPriceLabel: UILabel!
+    @IBOutlet private weak  var discountPriceLabel: UILabel!
     
     
     

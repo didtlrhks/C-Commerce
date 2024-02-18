@@ -12,6 +12,7 @@
 		8E747AB92B80989100D9302D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8E747AB82B80989100D9302D /* Kingfisher */; };
 		8E747ABB2B809A7B00D9302D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E747ABA2B809A7B00D9302D /* HomeViewModel.swift */; };
 		8E747ABE2B80B2BA00D9302D /* Numeric+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E747ABD2B80B2BA00D9302D /* Numeric+Extension.swift */; };
+		8E747AC22B82301900D9302D /* HomeCouponButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E747AC12B82301900D9302D /* HomeCouponButtonCollectionViewCell.swift */; };
 		8EFA88C32B78B4CB006E003E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88C22B78B4CB006E003E /* AppDelegate.swift */; };
 		8EFA88C52B78B4CB006E003E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88C42B78B4CB006E003E /* SceneDelegate.swift */; };
 		8EFA88CC2B78B4CD006E003E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EFA88CB2B78B4CD006E003E /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		8E747AB32B7F7BEA00D9302D /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		8E747ABA2B809A7B00D9302D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8E747ABD2B80B2BA00D9302D /* Numeric+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+Extension.swift"; sourceTree = "<group>"; };
+		8E747AC12B82301900D9302D /* HomeCouponButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCouponButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		8EFA88BF2B78B4CB006E003E /* C-Cermmerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C-Cermmerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EFA88C22B78B4CB006E003E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EFA88C42B78B4CB006E003E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				8EFA88F42B7A160E006E003E /* HomeBannerCollectionViewCell.swift */,
 				8EFA88F82B7B54B9006E003E /* HomeProductCollectionViewCell.swift */,
+				8E747AC12B82301900D9302D /* HomeCouponButtonCollectionViewCell.swift */,
 			);
 			name = View;
 			path = "퍋ㅈ";
@@ -270,6 +273,7 @@
 				8EFA88F92B7B54B9006E003E /* HomeProductCollectionViewCell.swift in Sources */,
 				8EFA88C32B78B4CB006E003E /* AppDelegate.swift in Sources */,
 				8E747ABE2B80B2BA00D9302D /* Numeric+Extension.swift in Sources */,
+				8E747AC22B82301900D9302D /* HomeCouponButtonCollectionViewCell.swift in Sources */,
 				8EFA88EE2B7A086F006E003E /* HomeViewController.swift in Sources */,
 				8EFA88E62B78D2E0006E003E /* CPFont.swift in Sources */,
 				8EFA88E02B78CCAD006E003E /* CPImage.swift in Sources */,

@@ -13,9 +13,9 @@ struct HomeBannerCollectionViewCellViewModel : Hashable {
     let bannerImageUrl  : String
 }
 
-class HomeBannerCollectionViewCell: UICollectionViewCell {
+final class HomeBannerCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
     
     func setViewModel(_ viewModel: HomeBannerCollectionViewCellViewModel){
         imageView.kf.setImage(with: URL(string: viewModel.bannerImageUrl))

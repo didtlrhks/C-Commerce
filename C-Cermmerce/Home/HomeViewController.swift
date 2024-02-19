@@ -9,6 +9,8 @@ import UIKit
 import Combine
 //UIViewController 를 상속받는HomeViewController 클래스 선언
 final class HomeViewController:UIViewController {
+    private typealias DataSource = UICollectionViewDiffableDataSource<Section,AnyHashable>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
     
    private enum Section : Int{ //섹션의 종류를 정의하는 열거형
         case banner
@@ -20,8 +22,8 @@ final class HomeViewController:UIViewController {
     
     
     @IBOutlet private weak var collectionView: UICollectionView! // 뷰와의 연결
-    private lazy var dataSource : UICollectionViewDiffableDataSource<Section, AnyHashable> = setDataSource() // 컬렉션 뷰의 데이터 소스를 관리하는 변수임
-    private var compositianlLayout : UICollectionViewCompositionalLayout = setCompositinalLayout()
+    private lazy var dataSource : DataSource = setDataSource() // 컬렉션 뷰의 데이터 소스를 관리하는 변수임
+    private lazy var compositianlLayout : UICollectionViewCompositionalLayout = setCompositinalLayout()
     
     //UICollectionViewCompositionalLayout를 사용하여 각 섹션의 레이아웃을 동적으로 생성
     private var viewModel : HomeViewModel = HomeViewModel() // 홈화면의 데이터 처리와 상태관리를 담당하기위해서 사용함
@@ -46,9 +48,9 @@ final class HomeViewController:UIViewController {
         viewModel.process(action: .loadCoupon)
     }
     
-    private static func setCompositinalLayout() -> UICollectionViewCompositionalLayout { // 각세션별 레이아웃을 설정하는 함수
-        UICollectionViewCompositionalLayout{section, _ in
-            switch Section(rawValue: section) {
+    private  func setCompositinalLayout() -> UICollectionViewCompositionalLayout { // 각세션별 레이아웃을 설정하는 함수
+        UICollectionViewCompositionalLayout{[weak self] section, _ in
+            switch self?.currentSection[section]{
             case .banner:
                 return HomeBannerCollectionViewCell.bannerLayout()// 배너 섹션의 레이아웃을 반환하는것
             case .horizontalProductItem:
@@ -72,10 +74,10 @@ final class HomeViewController:UIViewController {
     }
     
     
-    private func setDataSource() -> UICollectionViewDiffableDataSource<Section, AnyHashable>{
-        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView,cellProvider: { [weak self] collectionView, indexPath, viewModel in
+    private func setDataSource() -> DataSource {
+       return UICollectionViewDiffableDataSource(collectionView: collectionView,cellProvider: { [weak self] collectionView, indexPath, viewModel in
             
-            switch Section(rawValue: indexPath.section) {
+           switch self?.currentSection[indexPath.section] {
             case .banner :
                 return self?.bannerCell(collectionView,indexPath,viewModel)
                 
@@ -92,7 +94,7 @@ final class HomeViewController:UIViewController {
     }
     
     private func applySnapShot() {
-        var snapShot : NSDiffableDataSourceSnapshot<Section,AnyHashable> = NSDiffableDataSourceSnapshot<Section,AnyHashable>()
+        var snapShot : Snapshot = Snapshot()
         if let bannerViewModels = viewModel.state.collectionViewModels.bannerViewModels{
             snapShot.appendSections([.banner])
             snapShot.appendItems(bannerViewModels ,toSection: .banner)
@@ -111,7 +113,7 @@ final class HomeViewController:UIViewController {
             snapShot.appendSections([.verticalProductItem])
             snapShot.appendItems(verticalViewModels, toSection: .verticalProductItem)
         }
-        dataSource?.apply(snapShot)
+        dataSource.apply(snapShot)
     }
     
     private func bannerCell(_ collectionView: UICollectionView,_ indexPath: IndexPath,_ viewModel:AnyHashable) -> UICollectionViewCell{

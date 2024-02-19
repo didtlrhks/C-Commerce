@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 struct HomeCouponButtonCollectionViewCellViewModel : Hashable {
     
@@ -17,7 +18,7 @@ struct HomeCouponButtonCollectionViewCellViewModel : Hashable {
 }
 
 final class HomeCouponButtonCollectionViewCell: UICollectionViewCell {
-    
+    private var didTapCouponDownload : PassthroughSubject<Void,Never>?
    
     @IBOutlet var couponButton: UIButton! {
         didSet {
@@ -37,6 +38,11 @@ final class HomeCouponButtonCollectionViewCell: UICollectionViewCell {
             false
         }
     }
+    
+    @IBAction private func didTapCouponButton(_ sender: Any) {
+        
+    }
+    
 }
 
 

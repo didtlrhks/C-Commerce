@@ -136,6 +136,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="133"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="didTapCouponButton:" destination="fh4-B1-byj" eventType="touchUpInside" id="XzN-Z2-cho"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

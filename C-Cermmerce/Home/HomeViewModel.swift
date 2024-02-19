@@ -11,14 +11,18 @@ import Combine
 final class HomeViewModel {
     enum Action {
         case loadData
+        case loadCoupon
         case getDataSuccess(HomeResponse)
         case getDataFailure(Error)
+        case getCouponSuccess(Bool)
+     
     }
     final class State{
         struct CollectionViewModels{
              var bannerViewModels : [HomeBannerCollectionViewCellViewModel]?
              var horizontalProductViewModels: [HomeProductCollectionViewCellViewModel]?
              var verticalProductViewModels: [HomeProductCollectionViewCellViewModel]?
+            var couponState: [HomeCouponButtonCollectionViewCellViewModel]?
         }
         @Published var collectionViewModels : CollectionViewModels = CollectionViewModels()
         }
@@ -29,10 +33,16 @@ final class HomeViewModel {
         switch action {
         case .loadData:
             loadData()
+        case .loadCoupon:
+            loadCoupon()
         case let .getDataSuccess(response):
             transformResponses(response)
         case let .getDataFailure(error):
             print("nework error : \(error)")
+        case let .getCouponSuccess(isDownloded):
+            Task{ await
+                transformCoupon(isDownloded)
+            }
         }
     }
    
@@ -57,6 +67,12 @@ extension HomeViewModel {
                
             }
         }
+    }
+    
+    private func loadCoupon() {
+        let couponState: Bool = UserDefaults.standard.bool(forKey: "CouponDownloaded")
+        process(action: .getCouponSuccess(couponState))
+        
     }
     
     private func transformResponses(_ response: HomeResponse){
@@ -101,4 +117,10 @@ extension HomeViewModel {
                                                        discountPrice: $0.discountPrice.moneyString)
             }
         }
+    
+    @MainActor
+    private func transformCoupon(_ isDownloded: Bool) async
+    {
+        state.collectionViewModels.couponState = [.init(state:isDownloded ? .disable : .enable)]
+    }
 }

@@ -125,8 +125,16 @@
                                             <outlet property="productTitleLabel" destination="Zm3-Cu-C6h" id="Qdn-SG-qAf"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeSpearateLineCollectionViewCell" id="LBa-nK-Wde" customClass="HomeSpearateLineCollectionViewCell" customModule="C_Cermmerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="107" width="393" height="189"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6ju-qN-VaI">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="189"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCouponButtonCollectionViewCell" id="fh4-B1-byj" customClass="HomeCouponButtonCollectionViewCell" customModule="C_Cermmerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="107" width="393" height="133"/>
+                                        <rect key="frame" x="0.0" y="306" width="393" height="133"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LBb-P4-0bh">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="133"/>

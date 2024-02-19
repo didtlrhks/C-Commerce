@@ -15,8 +15,10 @@ final class HomeViewController:UIViewController {
    private enum Section : Int{ //섹션의 종류를 정의하는 열거형
         case banner
         case horizontalProductItem
+        case separateLine1
         case couponButton
         case verticalProductItem
+        case separateLine2
         
     }
     
@@ -63,7 +65,8 @@ final class HomeViewController:UIViewController {
                 
             case .verticalProductItem:
                 return  HomeProductCollectionViewCell.verticalProductItemLayout()
-                
+            case .separateLine1,.separateLine2:
+                return HomeSpearateLineCollectionViewCell.separateLineLayout()
             case .none: return nil
             }
         }
@@ -93,6 +96,8 @@ final class HomeViewController:UIViewController {
                 return self?.ProductItemCell(collectionView,indexPath,viewModel)
             case .couponButton:
                 return self?.couponButtonCell(collectionView,indexPath,viewModel)
+           case .separateLine1,.separateLine2:
+               return self?.separateLineCell(collectionView,indexPath,viewModel)
             case .none :
                 return .init()
             }
@@ -111,7 +116,11 @@ final class HomeViewController:UIViewController {
             snapShot.appendSections([.horizontalProductItem])
             snapShot.appendItems(horizontalViewModels, toSection: .horizontalProductItem)
         }
+        
+        
         if let couponViewModels = viewModel.state.collectionViewModels.couponState{
+            snapShot.appendSections([.separateLine1])
+            snapShot.appendItems(viewModel.state.collectionViewModels.separateLine1ViewModels,toSection: .separateLine1)
             snapShot.appendSections([.couponButton])
             snapShot.appendItems(couponViewModels,toSection: .couponButton)
         }
@@ -148,6 +157,16 @@ final class HomeViewController:UIViewController {
                 HomeCouponButtonCollectionViewCell else {return .init()}
         
         cell.setViewModel(viewModel,didTapCouponDownload)
+        return cell
+    }
+    
+    private func separateLineCell(_ collectionView: UICollectionView,_ indexPath: IndexPath,_ viewModel:AnyHashable) -> UICollectionViewCell {
+        guard let viewModel = viewModel as? HomeSpearateLineCollectionViewCellViewModel,
+              
+                let cell : HomeSpearateLineCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeSpearateLineCollectionViewCell", for : indexPath) as?
+                HomeSpearateLineCollectionViewCell else {return .init()}
+        
+        cell.setViewModel(viewModel)
         return cell
     }
 }

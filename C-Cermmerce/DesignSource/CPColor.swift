@@ -13,6 +13,7 @@ enum CPColor{
     static var bk:UIColor = UIColor(named: "bk")!
     static var coral:UIColor = UIColor(named: "coral")!
     static var gray0:UIColor = UIColor(named: "gray-0")!
+//    static var gray1:UIColor = UIColor(named: "gray-1")!
     static var gray2:UIColor = UIColor(named: "gray-2")!
     static var gray3cool:UIColor = UIColor(named: "gray-3-cool")!
     static var gray3:UIColor = UIColor(named: "gray-3")!

@@ -24,6 +24,8 @@ final class HomeViewModel {
              var horizontalProductViewModels: [HomeProductCollectionViewCellViewModel]?
              var verticalProductViewModels: [HomeProductCollectionViewCellViewModel]?
             var couponState: [HomeCouponButtonCollectionViewCellViewModel]?
+            var separateLine1ViewModels : [HomeSpearateLineCollectionViewCellViewModel] = [HomeSpearateLineCollectionViewCellViewModel()]
+            var separateLine2ViewModels : [HomeSpearateLineCollectionViewCellViewModel] = [HomeSpearateLineCollectionViewCellViewModel()]
         }
         @Published var collectionViewModels : CollectionViewModels = CollectionViewModels()
         }

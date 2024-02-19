@@ -18,7 +18,7 @@ struct HomeCouponButtonCollectionViewCellViewModel : Hashable {
 }
 
 final class HomeCouponButtonCollectionViewCell: UICollectionViewCell {
-    private var didTapCouponDownload : PassthroughSubject<Void,Never>?
+    private weak var didTapCouponDownload : PassthroughSubject<Void,Never>?
    
     @IBOutlet var couponButton: UIButton! {
         didSet {
@@ -27,10 +27,10 @@ final class HomeCouponButtonCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setViewModel(_ viewModel: HomeCouponButtonCollectionViewCellViewModel)
+    func setViewModel(_ viewModel: HomeCouponButtonCollectionViewCellViewModel,_ didTapCouponDownload : PassthroughSubject<Void,Never>?)
     
     {
-        
+        self.didTapCouponDownload = didTapCouponDownload
         couponButton.isEnabled = switch viewModel.state{
         case .enable:
             true
@@ -40,7 +40,7 @@ final class HomeCouponButtonCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction private func didTapCouponButton(_ sender: Any) {
-        
+        didTapCouponDownload?.send()
     }
     
 }

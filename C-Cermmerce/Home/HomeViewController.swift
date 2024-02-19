@@ -32,6 +32,9 @@ final class HomeViewController:UIViewController {
         dataSource.snapshot().sectionIdentifiers as [Section]
     }
     
+    private var didTapCouponDownload : PassthroughSubject<Void,Never> =
+    PassthroughSubject<Void,Never>()
+    
     
     override func viewDidLoad() { // 뷰 컨트롤러의 뷰가 로드될때 호출되는녀석
         super.viewDidLoad()
@@ -71,6 +74,11 @@ final class HomeViewController:UIViewController {
                 self?.applySnapShot()
                 
             }.store(in: &cancellables)
+        
+        didTapCouponDownload.receive(on:DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.viewModel.process(action: .didTapCouponButton)
+                }.store(in: &cancellables)
     }
     
     
@@ -138,7 +146,8 @@ final class HomeViewController:UIViewController {
               
                 let cell : HomeCouponButtonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCouponButtonCollectionViewCell", for : indexPath) as?
                 HomeCouponButtonCollectionViewCell else {return .init()}
-        cell.setViewModel(viewModel)
+        
+        cell.setViewModel(viewModel,didTapCouponDownload)
         return cell
     }
 }

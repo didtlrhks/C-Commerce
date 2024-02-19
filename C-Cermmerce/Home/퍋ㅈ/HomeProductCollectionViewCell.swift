@@ -19,7 +19,7 @@ struct HomeProductCollectionViewCellViewModel : Hashable{
 
 
 final class HomeProductCollectionViewCell: UICollectionViewCell {
-    
+    static let reusableId : String = "HomeProductCollectionViewCell"
     @IBOutlet private weak var productItemImageView: UIImageView!{
         didSet {
             productItemImageView.layer.cornerRadius = 5

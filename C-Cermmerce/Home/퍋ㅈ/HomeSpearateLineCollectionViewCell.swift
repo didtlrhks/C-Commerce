@@ -13,6 +13,7 @@ struct HomeSpearateLineCollectionViewCellViewModel: Hashable {
 }
 
 final class HomeSpearateLineCollectionViewCell: UICollectionViewCell {
+    static let reusableId : String = "HomeSpearateLineCollectionViewCell"
     func setViewModel(_ viewModel: HomeSpearateLineCollectionViewCellViewModel){
         contentView.backgroundColor = CPColor.gray2
     }
@@ -30,7 +31,7 @@ extension HomeSpearateLineCollectionViewCell {
             
             let section : NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .none
-        section.contentInsets = .zero
+        section.contentInsets = .init(top:20,leading: 0,bottom: 0,trailing: 0)
            
             return section
     }

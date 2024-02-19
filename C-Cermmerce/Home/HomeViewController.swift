@@ -115,12 +115,14 @@ final class HomeViewController:UIViewController {
         if let horizontalViewModels = viewModel.state.collectionViewModels.horizontalProductViewModels{
             snapShot.appendSections([.horizontalProductItem])
             snapShot.appendItems(horizontalViewModels, toSection: .horizontalProductItem)
+            
+            snapShot.appendSections([.separateLine1])
+            snapShot.appendItems(viewModel.state.collectionViewModels.separateLine1ViewModels,toSection: .separateLine1)
         }
         
         
         if let couponViewModels = viewModel.state.collectionViewModels.couponState{
-            snapShot.appendSections([.separateLine1])
-            snapShot.appendItems(viewModel.state.collectionViewModels.separateLine1ViewModels,toSection: .separateLine1)
+           
             snapShot.appendSections([.couponButton])
             snapShot.appendItems(couponViewModels,toSection: .couponButton)
         }
@@ -135,7 +137,7 @@ final class HomeViewController:UIViewController {
     
     private func bannerCell(_ collectionView: UICollectionView,_ indexPath: IndexPath,_ viewModel:AnyHashable) -> UICollectionViewCell{
         guard let viewModel = viewModel as? HomeBannerCollectionViewCellViewModel,
-              let cell : HomeBannerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeBannerCollectionViewCell", for: indexPath) as? HomeBannerCollectionViewCell else {return .init() }
+              let cell : HomeBannerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeBannerCollectionViewCell.reusableId, for: indexPath) as? HomeBannerCollectionViewCell else {return .init() }
         
         cell.setViewModel(viewModel)
         return cell
@@ -143,7 +145,7 @@ final class HomeViewController:UIViewController {
     private func ProductItemCell(_ collectionView: UICollectionView,_ indexPath: IndexPath,_ viewModel:AnyHashable) -> UICollectionViewCell{
         guard let viewModel = viewModel as? HomeProductCollectionViewCellViewModel,
               
-                let cell : HomeProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeProductCollectionViewCell", for : indexPath) as?
+                let cell : HomeProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeProductCollectionViewCell.reusableId, for : indexPath) as?
                 HomeProductCollectionViewCell else {return .init()}
         cell.setViewModel(viewModel)
         return cell
@@ -153,7 +155,7 @@ final class HomeViewController:UIViewController {
         
         guard let viewModel = viewModel as? HomeCouponButtonCollectionViewCellViewModel,
               
-                let cell : HomeCouponButtonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCouponButtonCollectionViewCell", for : indexPath) as?
+                let cell : HomeCouponButtonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCouponButtonCollectionViewCell.reusableId, for : indexPath) as?
                 HomeCouponButtonCollectionViewCell else {return .init()}
         
         cell.setViewModel(viewModel,didTapCouponDownload)
@@ -163,8 +165,9 @@ final class HomeViewController:UIViewController {
     private func separateLineCell(_ collectionView: UICollectionView,_ indexPath: IndexPath,_ viewModel:AnyHashable) -> UICollectionViewCell {
         guard let viewModel = viewModel as? HomeSpearateLineCollectionViewCellViewModel,
               
-                let cell : HomeSpearateLineCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeSpearateLineCollectionViewCell", for : indexPath) as?
-                HomeSpearateLineCollectionViewCell else {return .init()}
+                let cell : HomeSpearateLineCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeSpearateLineCollectionViewCell.reusableId, for : indexPath) as?
+                HomeSpearateLineCollectionViewCell
+                 else {return .init()}
         
         cell.setViewModel(viewModel)
         return cell

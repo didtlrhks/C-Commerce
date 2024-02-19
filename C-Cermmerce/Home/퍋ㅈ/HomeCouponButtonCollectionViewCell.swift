@@ -18,6 +18,7 @@ struct HomeCouponButtonCollectionViewCellViewModel : Hashable {
 }
 
 final class HomeCouponButtonCollectionViewCell: UICollectionViewCell {
+    static let reusableId : String  = "HomeCouponButtonCollectionViewCell"
     private weak var didTapCouponDownload : PassthroughSubject<Void,Never>?
    
     @IBOutlet var couponButton: UIButton! {
